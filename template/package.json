@@ -1,9 +1,9 @@
 
 {
-  "name": "electron-quick-start",
+  "name": "pwaify-template",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
-  "productName": "Foo Bar",
+  "description": "Progressive Web App",
+  "productName": "PWAify",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js"
@@ -24,7 +24,7 @@
     "url": "https://github.com/electron/electron-quick-start/issues"
   },
   "homepage": "https://github.com/electron/electron-quick-start#readme",
-  "devDependencies": {
+  "dependencies": {
     "electron-prebuilt": "^1.1.2"
   }
 }
