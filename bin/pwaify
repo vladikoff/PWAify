@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+const meow = require('meow');
+const cli = meow(`
+    Usage
+      $ pwaify <input>
+
+    Options
+      --platforms Platforms to build the app.
+
+    Examples
+      $ pwaify https://airhorner.com --platforms=darwin
+`);
+
+require('../index')({
+  appUrl: cli.input[0],
+  platforms: cli.flags.platforms || 'all'
+});
