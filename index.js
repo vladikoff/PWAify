@@ -3,6 +3,7 @@ const packager = require('electron-packager');
 const fs = require('fs');
 const chalk = require('chalk');
 const path = require('path');
+
 const manifest = require('./lib/manifest');
 
 module.exports = function (options) {
@@ -10,7 +11,7 @@ module.exports = function (options) {
   debug('options', options);
   const appUrl = options.appUrl;
   return manifest.fetchManifestDetails(appUrl)
-    .then(function (manifestJson) {
+    .then(function(manifestJson) {
       debug('manifestJson', manifestJson);
       var name = manifestJson.name || manifestJson.short_name;
       var start_url = appUrl + manifestJson.start_url ;
@@ -25,6 +26,10 @@ module.exports = function (options) {
         dir: path.join(__dirname, 'template'),
         platform: options.platforms || 'all'
       };
+
+      if (options.icon) {
+        packagerOpts.icon = options.icon
+      }
 
       return new Promise(function (resolve) {
         packager(packagerOpts, function done_callback(err, appPaths) {

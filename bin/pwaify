@@ -7,6 +7,7 @@ const cli = meow(`
 
     Options
       --platforms Platforms to build the app.
+      --icon App Icon.
 
     Examples
       $ pwaify https://airhorner.com --platforms=darwin
@@ -14,5 +15,6 @@ const cli = meow(`
 
 require('../index')({
   appUrl: cli.input[0],
-  platforms: cli.flags.platforms || 'all'
+  platforms: cli.flags.platforms || 'all',
+  icon: cli.flags.icon
 });
