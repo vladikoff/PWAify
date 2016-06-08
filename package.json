@@ -1,11 +1,8 @@
 {
   "name": "pwaify",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Electron PWA (Progressive Web App) Generator",
   "main": "index.js",
-  "scripts": {
-    "postinstall": "cd template && npm install"
-  },
   "bin": {
     "pwaify": "bin/pwaify"
   },
