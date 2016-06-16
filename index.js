@@ -10,6 +10,8 @@ module.exports = function (options) {
   options = options || {};
   debug('options', options);
   const appUrl = options.appUrl;
+  const appPath = options.path;
+
   return manifest.fetchManifestDetails(appUrl)
     .then(function(manifestJson) {
       debug('manifestJson', manifestJson);
@@ -32,20 +34,27 @@ module.exports = function (options) {
       }
 
       return new Promise(function (resolve) {
+        if(appPath) {
+          if(fs.existsSync(appPath)) {
+            process.chdir(appPath);
+          } else {
+              throw new Error("Path doesn't exsists.");
+          }
+        }
+
         packager(packagerOpts, function done_callback(err, appPaths) {
           if (err) {
             throw err;
+          } else {
+            resolve({
+              appPaths: appPaths
+            })
           }
-
-          resolve({
-            appPaths: appPaths
-          })
         })
       })
-
     })
     .then(function (result) {
-      console.log(chalk.green('Your app is ready!'), result);
+      console.log(chalk.green('Your app is ready!'), result.appPaths);
     }).catch(function (err) {
       throw err;
     })

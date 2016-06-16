@@ -16,5 +16,6 @@ const cli = meow(`
 require('../index')({
   appUrl: cli.input[0],
   platforms: cli.flags.platforms || 'all',
+  path: cli.flags.path || '.',
   icon: cli.flags.icon
 });
