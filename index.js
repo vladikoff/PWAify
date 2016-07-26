@@ -16,7 +16,7 @@ module.exports = function (options) {
     .then(function(manifestJson) {
       debug('manifestJson', manifestJson);
       var name = manifestJson.name || manifestJson.short_name;
-      var start_url = appUrl + manifestJson.start_url ;
+      var start_url = appUrl + (manifestJson.start_url || '');
       var appData = {
         appUrl: start_url
       };
