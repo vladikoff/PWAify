@@ -4,7 +4,7 @@ const fs = require('fs');
 const chalk = require('chalk');
 const path = require('path');
 
-const manifest = require('./lib/manifest');
+const fetchManifestDetails = require('fetch-manifest-json');
 
 module.exports = function (options) {
   options = options || {};
@@ -12,7 +12,7 @@ module.exports = function (options) {
   const appUrl = options.appUrl;
   const appPath = options.path;
 
-  return manifest.fetchManifestDetails(appUrl)
+  return fetchManifestDetails(appUrl)
     .then(function(manifestJson) {
       debug('manifestJson', manifestJson);
       var name = manifestJson.name || manifestJson.short_name;
