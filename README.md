@@ -19,6 +19,7 @@ npm install -g pwaify
 ```
 pwaify https://airhorner.com
 pwaify https://voice-memos.appspot.com/ --platforms=darwin --icon chrome-touch-icon-384x384.icns
+pwaify https://m.weibo.cn --platforms=darwin --manifest=https://m.weibo.cn/static/pwa/manifest.json
 ```
 
 (Might require `sudo` at the moment if you get `pref.json` error).
