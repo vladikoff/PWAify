@@ -11,8 +11,8 @@ module.exports = function (options) {
   debug('options', options);
   const appUrl = options.appUrl;
   const appPath = options.path;
-  const manifestUrl = options.manifestUrl;
-  return manifest.fetchManifestDetails(appUrl, manifestUrl)
+
+  return manifest.fetchManifestDetails(appUrl)
     .then(function(manifestJson) {
       debug('manifestJson', manifestJson);
       var name = manifestJson.name || manifestJson.short_name;
